@@ -6,9 +6,7 @@
 var reverse = function(x) {
     
   let isNegative = x < 0 ? true : false
-  
   if(isNegative) x *= -1
-  
   let newVar = 0
   
   while(x >= 0) {
@@ -19,9 +17,7 @@ var reverse = function(x) {
   }
   
   newVar /= 10
-  
   if(isNegative) newVar *= -1
-  
-  
+
   return newVar
 };
