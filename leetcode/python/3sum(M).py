@@ -1,26 +1,28 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        answer = []
-        nums.sort()
         
-        for i, value in enumerate(nums):
-            if value == nums[i - 1] and i > 0:
-                continue
+        N = len(nums)
+        ans = []
+        nums.sort(reverse=True)
+        vis = {}
+
+        for i in range(0, N-2):
+    
+            l = i+1
+            r = N-1
             
-            left = i + 1
-            right = len(nums) - 1
-            
-            while left < right:
-                sum = value + nums[left] + nums[right]
+            while l < r:
+                sum = nums[i] + nums[l] + nums[r]
                 
-                if sum > 0:
-                    right -= 1
-                elif sum < 0: 
-                    left += 1
+                if sum == 0:
+                    potential_ans = tuple([nums[i], nums[l], nums[r]])
+                    if potential_ans not in vis:
+                        vis[potential_ans] = 1
+                        ans.append([nums[i], nums[l], nums[r]])
+                    l += 1
+                elif sum > 0:
+                    l += 1
                 else:
-                    answer.append([value, nums[left], nums[right]])
-                    left += 1
-                    while nums[left] == nums[left - 1] and left < right:
-                        left += 1
-        return answer
-        
+                    r -= 1
+            
+        return ans
