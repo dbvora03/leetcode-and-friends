@@ -11,3 +11,15 @@ class Solution:
             new_number = (new_number << 1) | bit
             
         return new_number
+
+
+
+
+
+
+
+
+
+
+
+
