@@ -20,5 +20,5 @@ class Solution:
         for i in range(k):
             value = heapq.heappop(heap)
             answer.append(value[1])
-        
+
         return answer
