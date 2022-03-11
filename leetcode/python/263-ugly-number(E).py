@@ -12,8 +12,5 @@ class Solution:
             elif n % 5 == 0:
                 n /= 5
             else:
-                return False
-        
-        
-        
+                return False 
         return True
